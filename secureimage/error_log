@@ -1,0 +1,4 @@
+[27-Aug-2014 05:23:38 UTC] PHP Fatal error:  Call to undefined function imagecreate() in /home/viroj/public_html/delegate/secureimage/securimage.php on line 1413
+[27-Aug-2014 09:35:52 UTC] PHP Fatal error:  Call to undefined function imagecreate() in /home/viroj/public_html/delegate/secureimage/securimage.php on line 1413
+[27-Aug-2014 09:37:37 UTC] PHP Fatal error:  Call to undefined function imagecreate() in /home/viroj/public_html/delegate/secureimage/securimage.php on line 1413
+[27-Aug-2014 10:00:35 UTC] PHP Fatal error:  Call to undefined function imagecreate() in /home/viroj/public_html/delegate/secureimage/securimage.php on line 1413

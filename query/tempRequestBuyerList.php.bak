@@ -1,0 +1,34 @@
+<?php
+require_once("connectivity.php");
+session_start();
+	try
+	{
+		$b=false;
+		
+		$q=mysql_query("select count(request_id) as cnt from temp_delegate_requests where seller_com_id=".$_SESSION['did']." and request_mode='S'");
+		$cntchk=mysql_result($q,0);
+		$cntchk+=1;
+		
+		$qry=mysql_query("select * from temp_delegate_requests where request_mode='S' and seller_com_id=".$_SESSION['did']." and buyer_com_id=".$_GET['id']);
+		if(mysql_num_rows($qry)>0 && $rs=mysql_fetch_array($qry))
+		{
+			$b=true;
+		}
+		if(!$b)
+		{
+			$qry=mysql_query("insert into temp_delegate_requests (seller_com_id, buyer_com_id, request_mode,appointment_order) values (".$_SESSION['did'].", ".$_GET['id'].", 'S',".$cntchk.")");
+		}
+
+		$q=mysql_query("select count(request_id) as cnt from temp_delegate_requests where seller_com_id=".$_SESSION['did']." and request_mode='S'");
+		$cntchk=mysql_result($q,0);
+		
+		//echo $cntchk;
+
+		header("location:../appointmentRequestBuyerList.php?id=".$_GET['id']);
+	}
+	catch(Exception $e)
+	{
+		echo $e;
+	}
+
+?>

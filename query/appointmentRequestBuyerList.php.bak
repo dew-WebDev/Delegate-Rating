@@ -1,0 +1,127 @@
+<?php
+require_once("connectivity.php");
+session_start();
+	try
+	{
+	
+		$op="";
+		
+		$q=mysql_query("select pavillion_type as ptype from seller_missing_fields where seller_com_id=".$_SESSION['did']);
+		$ptype=mysql_result($q,0);
+	
+		$qry="select bc.buyer_com_id as bcid, bc.company_id as cid, bmf.FirstTimeBuyer, bmf.CompanyName as cname, c.country_name as cntName from buyer_missing_fields bmf, buyer_company bc, countries c where bmf.buyer_missing_fields_status='Y' and bc.buyer_com_id = bmf.buyer_com_id and c.country_id=bmf.CNT_ID and bmf.CompanyName like '".$_GET['svalue']."%' and bmf.CompanyName like '%".$_GET['selcompany']."%'";
+		if(isset($_GET['selcountry']) && $_GET['selcountry'] != 0)
+		{
+			$qry.=" and bmf.CNT_ID=".$_GET['selcountry'];
+		}
+		if(isset($_GET['selbuyer']) && $_GET['selbuyer'] != 0)
+		{
+			if($_GET['selbuyer'] == 1)
+			{
+				$qry.=" and bmf.FirstTimeBuyer=1";
+			}
+			else if($_GET['selbuyer'] == 2)
+			{
+				$qry.=" and bmf.FirstTimeBuyer=0";
+			}
+		}
+		
+		if($_GET['selbuyprofile'] != 0)
+		{
+			$qry.=" and bmf.busitype".$_GET['selbuyprofile']."= ".$_GET['selbuyprofile'];
+		}
+		
+		
+		$qry.=" order by bmf.CompanyName";
+		$cnt=0;
+		$cntchk=0;
+		
+		$b=false;
+		$q=mysql_query("select * from delegate_requests where seller_com_id=".$_SESSION['did']." and request_mode='S'");
+		if(mysql_num_rows($q)>0 && $r=mysql_fetch_array($q))
+		{
+			$b=true;
+		}
+		if($b)
+		{
+			$q=mysql_query("select count(request_id) as cnt from delegate_requests where seller_com_id=".$_SESSION['did']." and request_mode='S'");
+			$cntchk=mysql_result($q,0);
+		}
+		else
+		{
+			$q=mysql_query("select count(request_id) as cnt from temp_delegate_requests where seller_com_id=".$_SESSION['did']." and request_mode='S'");
+			$cntchk=mysql_result($q,0);
+		}
+		
+		$op.= "<table class='table table-bordered table-hover table-striped tablesorter'><thead><tr><th>Reg No.&nbsp;&nbsp;<i class='fa fa-sort'></th><th>Organisation Name&nbsp;&nbsp;<i class='fa fa-sort'></th><th>Country&nbsp;&nbsp;<i class='fa fa-sort'></th><th>Appointment Request</th></tr></thead><tbody>";
+		$q=mysql_query($qry);
+		if(mysql_num_rows($q)>0)
+		{
+			while($rs=mysql_fetch_array($q))
+			{
+				$cnt+=1;
+				if($rs['FirstTimeBuyer'] == 1)
+				{
+					if($b)
+					{
+						$qry=mysql_query("select * from delegate_requests where request_mode='S' and buyer_com_id=".$rs['bcid']);
+					}
+					else
+					{
+						$qry=mysql_query("select * from temp_delegate_requests where request_mode='S' and buyer_com_id=".$rs['bcid']);
+					}
+					if(mysql_num_rows($qry) && $r=mysql_fetch_array($qry))
+					{
+						$op.= "<tr><td>".$rs['cid']."</td><td>".$rs['cname']."</td><td>".$rs['cntName']."</td><td style='text-align:center;'><span id='href".$cnt."'><a href='#' target='hidframe1' onClick=\"removebox('".$rs['bcid']."','".$cnt."','B');\"><input checked type='checkbox' class='chk' name='chk".$cnt."' id='chk".$cnt."' /></a></span></th></tr>";
+					}
+					else
+					{
+						if($ptype == '3')
+						{
+							$op.= "<tr><td>".$rs['cid']."</td><td>".$rs['cname']."</td><td>".$rs['cntName']."</td><td style='text-align:center;'><a href='#' target='hidframe' onClick=\"buyerchkbox('".$rs['bcid']."','1','".$cnt."');\" ><input type='checkbox' class='chk' name='chk".$cnt."' id='chk".$cnt."' /></a></th></tr>";
+						}
+						else
+						{
+							$op.= "<tr><td>".$rs['cid']."</td><td>".$rs['cname']."</td><td>".$rs['cntName']."</td><td style='text-align:center;'><a href='#' target='hidframe' onClick=\"buyerchkbox('".$rs['bcid']."','2','".$cnt."');\" ><input type='checkbox' class='chk' name='chk".$cnt."' id='chk".$cnt."' /></a></th></tr>";
+						}
+					}
+				}
+				else
+				{
+					if($b)
+					{
+						$qry=mysql_query("select * from delegate_requests where request_mode='S' and buyer_com_id=".$rs['bcid']);
+					}
+					else
+					{
+						$qry=mysql_query("select * from temp_delegate_requests where request_mode='S' and buyer_com_id=".$rs['bcid']);
+					}
+					if(mysql_num_rows($qry) && $r=mysql_fetch_array($qry))
+					{
+						$op.= "<tr><td>".$rs['cid']."</td><td>".$rs['cname']."</td><td>".$rs['cntName']."</td><td style='text-align:center;'><a href='#' target='hidframe1' onClick=\"removebox('".$rs['bcid']."','".$cnt."','B');\" ><input checked type='checkbox' class='chk' name='chk".$cnt."' id='chk".$cnt."' /></a></td></tr>";
+					}
+					else
+					{
+						if($ptype == '3')
+						{
+							$op.= "<tr><td>".$rs['cid']."</td><td>".$rs['cname']."</td><td>".$rs['cntName']."</td><td style='text-align:center;'><a href='#' target='hidframe' onClick=\"buyerchkbox('".$rs['bcid']."','1','".$cnt."');\" ><input type='checkbox' class='chk' name='chk".$cnt."' id='chk".$cnt."' /></a></td></tr>";				
+						}
+						else
+						{
+							$op.= "<tr><td>".$rs['cid']."</td><td>".$rs['cname']."</td><td>".$rs['cntName']."</td><td style='text-align:center;'><a href='#' target='hidframe' onClick=\"buyerchkbox('".$rs['bcid']."','2','".$cnt."');\" ><input type='checkbox' class='chk' name='chk".$cnt."' id='chk".$cnt."' /></a></td></tr>";				
+						}
+					}
+				}
+			}
+		}
+		$q=mysql_query("select count(request_id) as cnt from temp_delegate_requests where seller_com_id=".$_SESSION['did']." and request_mode='S'");
+		$cntchk=mysql_result($q,0);
+		$op.= "</tbody></table><input type='hidden' id='hidcount' name='hidcount' value='".$cnt."' /><input type='hidden' id='hidcountchk' name='hidcountchk' value='".$cntchk."' />";
+		echo $op;
+	}
+	catch(Exception $e)
+	{
+		echo $e;
+	}
+
+?>

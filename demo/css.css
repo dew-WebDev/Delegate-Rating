@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Ropa Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ropa Sans'), local('RopaSans-Regular'), url(http://themes.googleusercontent.com/static/fonts/ropasans/v2/Sr4SZjJG2shlLRwOkNqcEj8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+@font-face {
+  font-family: 'Ropa Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Ropa Sans Italic'), local('RopaSans-Italic'), url(http://themes.googleusercontent.com/static/fonts/ropasans/v2/Wprc8_GrCVbQmKc-0NykFNIh4imgI8P11RFo6YPCPC0.woff) format('woff');
+}

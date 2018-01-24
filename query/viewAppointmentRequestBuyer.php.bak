@@ -1,0 +1,92 @@
+<?php
+require_once("connectivity.php");
+session_start();
+	try
+	{
+		$b=false;
+		$q=mysql_query("select * from delegate_requests where seller_com_id=".$_SESSION['did']." and request_mode='S'");
+		if(mysql_num_rows($q)>0 && $r=mysql_fetch_array($q))
+		{
+			$b=true;
+		}
+		if($b)
+		{
+			$qry="select bc.buyer_com_id as bcid, bc.company_id as cid, bmf.firstTimeBuyer,bmf.CompanyName as cname, c.country_name as cntName from buyer_company bc left join buyer_org_details bod on bc.buyer_com_id = bod.buyer_com_id, buyer_missing_fields bmf, countries c, delegate_requests dr where dr.request_status='Y' and dr.buyer_com_id=bmf.buyer_com_id and bmf.buyer_missing_fields_status='Y' and dr.buyer_com_id=bc.buyer_com_id and dr.request_mode='S' and c.country_id=bmf.CNT_ID and dr.seller_com_id =".$_SESSION['did']." order by appointment_order";
+			
+			$op="";
+
+			$cnt=0;
+			$op.= "<table class='table table-bordered table-hover table-striped tablesorter'><thead><tr><th style='text-align:center;'>Priority</th><th>Reg No.&nbsp;&nbsp;<i class='fa fa-sort'></th><th>Organisation Name&nbsp;&nbsp;<i class='fa fa-sort'></th><th>Country&nbsp;&nbsp;<i class='fa fa-sort'></th></tr></thead><tbody>";
+			$q=mysql_query($qry);
+			if(mysql_num_rows($q)>0)
+			{
+				while($rs=mysql_fetch_array($q))
+				{
+					$cnt+=1;
+					if($rs['FirstTimeBuyer'] == 1)
+					{
+						$op.= "<tr><td style='text-align:center;'>".$cnt."</td><td>".$rs['cid']."</td><td>".$rs['cname']."</td><td>".$rs['cntName']."</td></tr>";
+					}
+					else
+					{
+						$op.= "<tr><td style='text-align:center;'>".$cnt."</td><td>".$rs['cid']."</td><td>".$rs['cname']."</td><td>".$rs['cntName']."</td></tr>";				
+					}
+				}
+			}
+			
+			$op.= "</tbody></table>";
+			
+		}
+		else
+		{
+			$b=false;
+			$q=mysql_query("select * from delegate_requests where seller_com_id=".$_SESSION['did']." and request_mode='S'");
+			if(mysql_num_rows($q)>0 && $r=mysql_fetch_array($q))
+			{
+				$b=true;
+			}
+			if($b)
+			{
+				$q=mysql_query("select count(request_id) as cnt from delegate_requests where seller_com_id=".$_SESSION['did']." and request_mode='S'");
+				$cntchk=mysql_result($q,0);
+			}
+			else
+			{
+				$q=mysql_query("select count(request_id) as cnt from temp_delegate_requests where seller_com_id=".$_SESSION['did']." and request_mode='S'");
+				$cntchk=mysql_result($q,0);
+			}
+		
+			$qry="select bc.buyer_com_id as bcid, bc.company_id as cid, bmf.firstTimeBuyer,bmf.CompanyName as cname, c.country_name as cntName from buyer_company bc left join buyer_org_details bod on bc.buyer_com_id = bod.buyer_com_id, buyer_missing_fields bmf, countries c, temp_delegate_requests dr where dr.request_status='Y' and dr.buyer_com_id=bmf.buyer_com_id and bmf.buyer_missing_fields_status='Y' and dr.buyer_com_id=bc.buyer_com_id and dr.request_mode='S' and c.country_id=bmf.CNT_ID and dr.seller_com_id =".$_SESSION['did']." order by appointment_order";
+			
+			$op="";
+		
+			$cnt=0;
+			$op.= "<table class='table table-bordered table-hover table-striped tablesorter'><thead><tr><th style='text-align:center;'>Priority</th><th>Reg No.&nbsp;&nbsp;<i class='fa fa-sort'></th><th>Organisation Name&nbsp;&nbsp;<i class='fa fa-sort'></th><th>Country&nbsp;&nbsp;<i class='fa fa-sort'></th><th style='text-align:center;'>Cancel</th><th style='text-align:center;'>Priority</th></tr></thead><tbody>";
+			$q=mysql_query($qry);
+			if(mysql_num_rows($q)>0)
+			{
+				while($rs=mysql_fetch_array($q))
+				{
+					$cnt+=1;
+					if($rs['firstTimeBuyer'] == 1)
+					{
+						$op.= "<tr id='did".$cnt."'><td style='text-align:center;'>".$cnt."</td><td><input type='hidden' id='hidid".$cnt."' name='hidid".$cnt."' value='".$rs['bcid']."' />".$rs['cid']."</td><td>".$rs['cname']."</td><td>".$rs['cntName']."</td><td style='text-align:center;'><a href='#' target='hidframe1' onClick='deleteRow(this)' ><img src='images/trash.png' style='width:20px;height:20px;'></a></td><td style='text-align:center;'><a href='#' onclick='moveRow(this)'><i class='fa fa-arrow-up'></i></a><a href='#'  onclick='moveRow(this)'><i class='fa fa-arrow-down'></i></a></td></tr>";
+					}
+					else
+					{
+						$op.= "<tr id='did".$cnt."'><td style='text-align:center;'>".$cnt."</td><td><input type='hidden' id='hidid".$cnt."' name='hidid".$cnt."' value='".$rs['bcid']."' />".$rs['cid']."</td><td>".$rs['cname']."</td><td >".$rs['cntName']."</td><td style='text-align:center;'><a href='#' target='hidframe1' onClick='deleteRow(this)' ><img src='images/trash.png' style='width:20px;height:20px;'></a></td><td style='text-align:center;'><a href='#' onclick='moveRow(this)'><i class='fa fa-arrow-up'></i></a><a href='#'  onclick='moveRow(this)'><i class='fa fa-arrow-down'></i></a></td></tr>";				
+					}
+				}
+			}
+			$op.= "</tbody></table><input type='hidden' id='hidcount' name='hidcount' value='".$cntchk."' />";
+			
+		}
+		
+		echo $op;
+	}
+	catch(Exception $e)
+	{
+		echo $e;
+	}
+
+?>
