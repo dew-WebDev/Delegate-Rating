@@ -35,6 +35,53 @@ th
 	font-size:14px;
 	font-weight:bold;
 }
+.classname {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:24px;
+	font-weight:normal;
+	font-style:normal;
+	height:36px;
+	
+	
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+}.classname:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+	color:#777777;
+	text-decoration:none;
+}.classname:active {
+	position:relative;
+	top:1px;
+	text-decoration:none;
+	color:#000000;
+	}
 </style>
 <html lang="en">
 <head>
@@ -500,22 +547,76 @@ $qry1 ="select
 					{
 						if($arequest == 'MUTUAL')
 						{
-							echo "<tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td style='color:rgb(255,0,0);'>".$arequest."</td><td style='text-align:center;'></td></tr>";	
+							$CheckRatedSellID = $krows['scomid'];
+
+							$RatedSellID1 = mysql_query("select * from BuyerAnswer1 where RatedSellerID='".$CheckRatedSellID."' LIMIT 1");
+							$row = mysql_fetch_assoc($RatedSellID1);
+							
+							$RatedSellerIDAnswer = $row['RatedSellerID'];
+
+								if ($RatedSellerIDAnswer == $CheckRatedSellID)
+
+									{
+
+										echo "<tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td style='color:rgb(255,0,0);'>".$arequest."</td><td style='text-align:center;'><div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div></td></tr>";	
+									}	
+								else
+									{
+										echo "<tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td style='color:rgb(255,0,0);'>".$arequest."</td><td style='text-align:center;'><div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div></td></tr>";	
+									}
+								
 						}
 						else
 						{
-							echo "<tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td>".$arequest."</td><td style='text-align:center;'></td></tr>";
+							$CheckRatedSellID = $krows['scomid'];
+
+							$RatedSellID1 = mysql_query("select * from BuyerAnswer1 where RatedSellerID='".$CheckRatedSellID."' LIMIT 1");
+							$row = mysql_fetch_assoc($RatedSellID1);
+							
+							$RatedSellerIDAnswer = $row['RatedSellerID'];
+
+								if ($RatedSellerIDAnswer == $CheckRatedSellID)
+
+									{
+
+										echo "<tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td style='color:rgb(255,0,0);'>".$arequest."</td><td style='text-align:center;'><div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div></td></tr>";	
+									}	
+								else
+									{
+										echo "<tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td style='color:rgb(255,0,0);'>".$arequest."</td><td style='text-align:center;'><div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div></td></tr>";	
+									}
+								
+								
 						}
 					}
 					else
 					{
+						
+
+
 						if($descrip=='End of Day 1' || $descrip=='End of Business Session')
 						{
 						echo "<tr><td></td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td style='border-bottom: 1px solid grey; text-align:center;color:rgb(0,0,0);background-color:rgb(200,200,200);'>".$descrip."</td><td style='text-align:center;color:white;background-color:rgb(200,200,200);'></td><td style='text-align:center;color:white;background-color:rgb(200,200,200);'></td></tr>";
 						}
 						else if($descrip == "")
 						{
-						echo "<tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td></td><td style='text-align:center;'></td></tr>";
+							
+
+							$RatedSellID1 = mysql_query("select * from BuyerAnswer1 where RatedSellerID='".$CheckRatedSellID."' LIMIT 1");
+							$row = mysql_fetch_assoc($RatedSellID1);
+							
+							$RatedSellerIDAnswer = $row['RatedSellerID'];
+
+								if ($RatedSellerIDAnswer != "")
+
+									{
+										echo "<tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td></td><td style='text-align:center;'><div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div></td></tr>";
+									}	
+								else
+									{
+										echo "<tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td></td><td style='text-align:center;'><div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div></td></tr>";
+									}
+								
 						}
 						else
 						{
