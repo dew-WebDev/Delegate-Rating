@@ -365,16 +365,16 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
 <?php
 
 	$BuyerID = $_GET['BuyerID'];
-	$RatedSellerID = $_GET['RatedSellerID'];
+	$SlotID = $_GET['SlotID'];
 		
 
-							$RatedSellID1 = mysql_query("select * from BuyerAnswer1 where RatedSellerID='".$_GET['RatedSellerID']."' LIMIT 1");
-							$row = mysql_fetch_assoc($RatedSellID1);
+							$CheckSlot = mysql_query("select * from BuyerAnswer1 where SlotID='".$_GET['SlotID']."' LIMIT 1");
+							$row = mysql_fetch_assoc($CheckSlot);
 							
-							$RatedSellerIDAnswer = $row['RatedSellerID'];
+							$CheckSlotAnswer = $row['SlotID'];
 							
 
-			if (($RatedSellerIDAnswer == $_GET['RatedSellerID']))
+			if (($CheckSlotAnswer == $_GET['SlotID']))
 			{
 				 
 				
