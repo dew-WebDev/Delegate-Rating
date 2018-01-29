@@ -407,10 +407,10 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
         
 			?>
 
-	<form class="jotform-form" action="update_buyer_answer1.php" method="post" name="form_80041000772440" id="80041000772440" accept-charset="utf-8">
+	<form class="jotform-form" action="update_buyer_answer1b.php" method="post" name="form_80041000772440" id="80041000772440" accept-charset="utf-8">
   <input type="hidden" name="formID" value="80041000772440" />
    <input type="hidden" name="BuyerID" value="<?php echo"$BuyerID" ?>">
-  <input type="hidden" name="RatedSellerID" value="<?php echo"$RatedSellerID" ?>">
+  <input type="hidden" name="SlotID" value="<?php echo"$SlotID" ?>">
     <input type="hidden" name="IDAnswer" value="<?php echo"$IDanswer_buyer" ?>">
   <div class="form-all">
     <ul class="form-section page-section">
@@ -419,8 +419,19 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
           <div id="text_16" class="form-html" data-component="text">
             <h1>PATA Adventure and Responsible<br>Travel Mart</h1>
             <h2><?php echo "$Title"; ?></h2>
-            <p><?php echo "Seller ID: ".$_GET['RatedSellerID'].""; ?></p>
+           
           </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textbox" id="id_22">
+        <label class="form-label form-label-left form-label-auto" id="label_22" for="input_22">
+          Seller ID:
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_22" class="form-input jf-required">
+          <input type="text" id="input_22" name="q22_sellerId" data-type="input-textbox" class="form-textbox validate[required]" size="20" value="" data-component="textbox" required="" />
         </div>
       </li>
       <li class="form-line jf-required" data-type="control_radio" id="id_17">
@@ -570,7 +581,7 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
 				$Round = $buyer_rating_row['Round'];
 
 			?>
-<form class="jotform-form" action="insert_buyer_answer1.php" method="post" name="form_80041000772440" id="80041000772440" accept-charset="utf-8">
+<form class="jotform-form" action="insert_buyer_answer1b.php" method="post" name="form_80041000772440" id="80041000772440" accept-charset="utf-8">
   <input type="hidden" name="formID" value="80041000772440" />
  <input type="hidden" name="BuyerID" value="<?php echo"$BuyerID" ?>">
   <input type="hidden" name="RatedSellerID" value="<?php echo"$RatedSellerID" ?>">
@@ -581,8 +592,19 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
           <div id="text_16" class="form-html" data-component="text">
             <h1>PATA Adventure and Responsible<br>Travel Mart</h1>
             <h2><?php echo "$Title"; ?></h2>
-            <p><?php echo "Seller ID: ".$_GET['RatedSellerID'].""; ?></p>
+            
           </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textbox" id="id_22">
+        <label class="form-label form-label-left form-label-auto" id="label_22" for="input_22">
+          Seller ID:
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_22" class="form-input jf-required">
+          <input type="text" id="input_22" name="q22_sellerId" data-type="input-textbox" class="form-textbox validate[required]" size="20" value="" data-component="textbox" required="" />
         </div>
       </li>
       <li class="form-line jf-required" data-type="control_radio" id="id_17">
