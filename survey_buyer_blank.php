@@ -389,10 +389,10 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
 				$Title = $buyer_rating_row['Title'];
 				$Round = $buyer_rating_row['Round'];
 
-        $result = mysql_query("SELECT MAX(ID) AS max_page FROM BuyerAnswer1 where RatedSellerID='".$RatedSellerID."'");
+        $result = mysql_query("SELECT MAX(ID) AS max_page FROM BuyerAnswer1 where SlotID='".$SlotID ."'");
         $row = mysql_fetch_array($result);
 
-				$answer_buyer = mysql_query("select * from BuyerAnswer1 where RatedSellerID='".$RatedSellerID."' and ID='".$row["max_page"]."'");
+				$answer_buyer = mysql_query("select * from BuyerAnswer1 where SlotID='".$SlotID."' and ID='".$row["max_page"]."'");
         $answer_buyer_row = mysql_fetch_array($answer_buyer) or die(mysql_error());
         $IDanswer_buyer = $answer_buyer_row['ID'];
         $answer1 = $answer_buyer_row['Ans1'];
@@ -584,7 +584,7 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
 <form class="jotform-form" action="insert_buyer_answer1b.php" method="post" name="form_80041000772440" id="80041000772440" accept-charset="utf-8">
   <input type="hidden" name="formID" value="80041000772440" />
  <input type="hidden" name="BuyerID" value="<?php echo"$BuyerID" ?>">
-  <input type="hidden" name="RatedSellerID" value="<?php echo"$RatedSellerID" ?>">
+  <input type="hidden" name="SlotID" value="<?php echo"$SlotID" ?>">
   <div class="form-all">
     <ul class="form-section page-section">
       <li class="form-line" data-type="control_text" id="id_16">

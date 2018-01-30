@@ -1,5 +1,8 @@
 <?php
 
+$SellerInput = $_POST['q22_sellerIdß'];
+$SlotID = $_POST['SlotID'];
+
 if ($_POST['q17_typeA'] == 'Yes')
 	{
 		$QNo1 = "T";
@@ -31,7 +34,7 @@ else
 require_once("query/connectivity.php");
 
 	
-	$sql="INSERT INTO BuyerAnswer1 (BuyerID, RatedSellerID, Ans1, Ans2, Ans3, Ans4, Ans5, Ans6, Ans7, Active) VALUES ('".$_POST['BuyerID']."','".$_POST['RatedSellerID']."','".$QNo1."','".$QNo2."','".$QNo3."','".$QNo4."','".$QNo5."','".$QNo6."','".$QNo7."','Y')";
+	$sql="INSERT INTO BuyerAnswer1 (BuyerID, UnknownSellerID, SlotID, Ans1, Ans2, Ans3, Ans4, Ans5, Ans6, Ans7, Active) VALUES ('".$_POST['BuyerID']."','".$SellerInput."',".$SlotID.",'".$QNo1."','".$QNo2."','".$QNo3."','".$QNo4."','".$QNo5."','".$QNo6."','".$QNo7."','Y')";
 
 	if(mysql_query($sql) ){
     header("location:survey_buyer_message.php");
