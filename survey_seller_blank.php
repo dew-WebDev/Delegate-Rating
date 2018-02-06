@@ -345,6 +345,7 @@ margin-top: -17px;
 }
     /* Injected CSS Code */
 </style>
+
 <link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/buttons/form-submit-button-simple_white.css?3.3.3959"/>
 <script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
 <script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.3959" type="text/javascript"></script>
@@ -364,17 +365,17 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"save","qid":"2","text":"Save",
 <?php
 
   $SellerID = $_GET['SellerID'];
-  $RatedBuyerID = $_GET['RatedBuyerID'];
+  
   $SlotID = $_GET['SlotID'];
     
 
-              $RatedBuyID1 = mysql_query("select * from SellerAnswer1 where RatedBuyerID='".$_GET['RatedBuyerID']."' LIMIT 1");
-              $row = mysql_fetch_assoc($RatedBuyID1);
+             $CheckSlot = mysql_query("select * from SellerAnswer1 where SlotID='".$_GET['SlotID']."' LIMIT 1");
+              $row = mysql_fetch_assoc($CheckSlot);
               
-              $RatedBuyerIDAnswer = $row['RatedBuyerID'];
+              $CheckSlotAnswer = $row['SlotID'];
               
 
-      if ($RatedBuyerIDAnswer == $_GET['RatedBuyerID'])
+      if (($CheckSlotAnswer == $_GET['SlotID']))
       {
          
         
@@ -389,14 +390,15 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"save","qid":"2","text":"Save",
         $Title = $seller_rating_row['Title'];
         $Round = $seller_rating_row['Round'];
 
-        $result = mysql_query("SELECT MAX(ID) AS max_page FROM SellerAnswer1 where RatedBuyerID='".$RatedBuyerID."'");
+        $result = mysql_query("SELECT MAX(ID) AS max_page FROM SellerAnswer1 where SlotID='".$SlotID ."'");
         $row = mysql_fetch_array($result);
         
         
 
-        $answer_seller = mysql_query("select * from SellerAnswer1 where RatedBuyerID='".$RatedBuyerID."' and ID='".$row["max_page"]."'");
+        $answer_seller = mysql_query("select * from SellerAnswer1 where SlotID='".$SlotID ."' and ID='".$row["max_page"]."'");
         $answer_seller_row = mysql_fetch_array($answer_seller) or die(mysql_error());
         $IDanswer_seller = $answer_seller_row['ID'];
+        $UnknownBuyerID = $answer_seller_row['UnknownBuyerID'];
         $answer1 = $answer_seller_row['Ans1'];
         $answer2 = $answer_seller_row['Ans2'];
         $answer3 = $answer_seller_row['Ans3'];
@@ -408,10 +410,9 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"save","qid":"2","text":"Save",
         
 ?>
 
- <form class="jotform-form" action="update_seller_answer1.php" method="post" name="form_80041939872462" id="80041939872462" accept-charset="utf-8">
+ <form class="jotform-form" action="update_seller_answer1b.php" method="post" name="form_80041939872462" id="80041939872462" accept-charset="utf-8">
   <input type="hidden" name="formID" value="80041939872462" />
      <input type="hidden" name="SellerID" value="<?php echo"$SellerID" ?>">
-  <input type="hidden" name="RatedBuyerID" value="<?php echo"$RatedBuyerID" ?>">
   <input type="hidden" name="SlotID" value="<?php echo"$SlotID" ?>">
   <input type="hidden" name="IDAnswer" value="<?php echo"$IDanswer_seller" ?>">
   <div class="form-all">
@@ -422,8 +423,19 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"save","qid":"2","text":"Save",
              <h1>PATA Adventure and Responsible<br>Travel Mart</h1>
            
             <h2><?php echo "$Title"; ?></h2>
-            <p><?php echo "Buyer ID: ".$RatedBuyerID.""; ?></p>
+            
           </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textbox" id="id_22">
+        <label class="form-label form-label-left form-label-auto" id="label_22" for="input_22">
+          Buyer ID:
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_22" class="form-input jf-required">
+          <input type="text" id="input_22" name="q22_buyerId" data-type="input-textbox" class="form-textbox validate[required]" size="20" value="<?php echo "$UnknownBuyerID"; ?>" data-component="textbox" required="" />
         </div>
       </li>
       <li class="form-line jf-required" data-type="control_radio" id="id_17">
@@ -569,10 +581,9 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"save","qid":"2","text":"Save",
         $Round = $seller_rating_row['Round'];
 
       ?>
-        <form class="jotform-form" action="insert_seller_answer1.php" method="post" name="form_80041939872462" id="80041939872462" accept-charset="utf-8">
+        <form class="jotform-form" action="insert_seller_answer1b.php" method="post" name="form_80041939872462" id="80041939872462" accept-charset="utf-8">
   <input type="hidden" name="formID" value="80041939872462" />
       <input type="hidden" name="SellerID" value="<?php echo"$SellerID" ?>">
-  <input type="hidden" name="RatedBuyerID" value="<?php echo"$RatedBuyerID" ?>">
   <input type="hidden" name="SlotID" value="<?php echo"$SlotID" ?>">
   <div class="form-all">
     <ul class="form-section page-section">
@@ -582,8 +593,19 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"save","qid":"2","text":"Save",
              <h1>PATA Adventure and Responsible<br>Travel Mart</h1>
            
             <h2><?php echo "$Title"; ?></h2>
-            <p><?php echo "Buyer ID: ".$RatedBuyerID.""; ?></p>
+            
           </div>
+        </div>
+      </li>
+      <li class="form-line jf-required" data-type="control_textbox" id="id_22">
+        <label class="form-label form-label-left form-label-auto" id="label_22" for="input_22">
+          Buyer ID:
+          <span class="form-required">
+            *
+          </span>
+        </label>
+        <div id="cid_22" class="form-input jf-required">
+          <input type="text" id="input_22" name="q22_buyerId" data-type="input-textbox" class="form-textbox validate[required]" size="20" value="" data-component="textbox" required="" />
         </div>
       </li>
       <li class="form-line jf-required" data-type="control_radio" id="id_17">

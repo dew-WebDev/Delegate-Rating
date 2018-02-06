@@ -522,6 +522,7 @@ echo "<thead><tr><th style='width:10%;text-align:center;'>Date&nbsp;<i class='fa
 					}
 					
 					$sdesc="";
+					$flag ='T';
 					if($krows['bname'] !="")
 					{
 						if($arequest == 'MUTUAL')
@@ -537,12 +538,23 @@ echo "<thead><tr><th style='width:10%;text-align:center;'>Date&nbsp;<i class='fa
 								if ($RatedBuyerIDAnswer == $CheckRatedBuyID)
 
 									{
-										echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td style='color:rgb(255,0,0);'>".$arequest."</td><td style='text-align:center;'><div align='right'><a href='survey_seller.php?SellerID=$scomid&RatedBuyerID=$CheckRatedBuyID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div></td></tr></tbody>";	
+										echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td style='color:rgb(255,0,0);'>".$arequest."</td><td style='text-align:center;'>";
+
+											if ($flag=='T')
+													{
+														echo "<div align='right'><a href='survey_seller.php?SellerID=$scomid&RatedBuyerID=$CheckRatedBuyID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div>";
+													}	
+										echo "</td></tr></tbody>";
 
 									}
 								else
 									{
-										echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td style='color:rgb(255,0,0);'>".$arequest."</td><td style='text-align:center;'><div align='right'><a href='survey_seller.php?SellerID=$scomid&RatedBuyerID=$CheckRatedBuyID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div></td></tr></tbody>";	
+										echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td style='color:rgb(255,0,0);'>".$arequest."</td><td style='text-align:center;'>";	
+										if ($flag=='T')
+													{
+														echo "<div align='right'><a href='survey_seller.php?SellerID=$scomid&RatedBuyerID=$CheckRatedBuyID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div>";
+													}
+										echo "</td></tr></tbody>";
 
 									}
 						}
@@ -558,11 +570,22 @@ echo "<thead><tr><th style='width:10%;text-align:center;'>Date&nbsp;<i class='fa
 
 								if ($RatedBuyerIDAnswer == $CheckRatedBuyID)
 								{
-										echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td>".$arequest."</td><td style='text-align:center;'><div align='right'><a href='survey_seller.php?SellerID=$scomid&RatedBuyerID=$CheckRatedBuyID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div></td></tr></tbody>";	
+										echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td>".$arequest."</td><td style='text-align:center;'>";
+										if ($flag=='T')
+													{
+														echo "<div align='right'><a href='survey_seller.php?SellerID=$scomid&RatedBuyerID=$CheckRatedBuyID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div>";
+													}
+										echo "</td></tr></tbody>";
+
 								}
 								else
 								{
-									echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td>".$arequest."</td><td style='text-align:center;'><div align='right'><a href='survey_seller.php?SellerID=$scomid&RatedBuyerID=$CheckRatedBuyID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div></td></tr></tbody>";
+										echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td>".$arequest."</td><td style='text-align:center;'>";
+										if ($flag=='T')
+													{
+														echo "<div align='right'><a href='survey_seller.php?SellerID=$scomid&RatedBuyerID=$CheckRatedBuyID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div>";
+													}
+										echo "</td></tr></tbody>";
 								}
 						}
 						$sdesc = $krows['time_slot_description'];
@@ -587,11 +610,24 @@ echo "<thead><tr><th style='width:10%;text-align:center;'>Date&nbsp;<i class='fa
 
 								if ($SlotID == $CheckAnswerSlot)
 								{
-									echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td></td><td style='text-align:center;'><div align='right'><a href='survey_seller_blank.php?SellerID=$scomid&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div></td></tr></tbody>";	
+									echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td></td><td style='text-align:center;'>";	
+
+										if ($flag=='T')
+													{
+														echo "<div align='right'><a href='survey_seller_blank.php?SellerID=$scomid&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div>";
+													}	
+									echo "</td></tr></tbody>";				
+
 								}
 								else
 								{
-									echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td></td><td style='text-align:center;'><div align='right'><a href='survey_seller_blank.php?SellerID=$scomid&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div></td></tr></tbody>";	
+									echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td></td><td style='text-align:center;'>";
+
+										if ($flag=='T')
+													{
+														echo "<div align='right'><a href='survey_seller_blank.php?SellerID=$scomid&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div>";
+													}	
+									echo "</td></tr></tbody>";
 								}	
 						}
 						else

@@ -367,7 +367,7 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
 	$BuyerID = $_GET['BuyerID'];
 	$RatedSellerID = $_GET['RatedSellerID'];
   $SlotID = $_GET['SlotID'];
-  echo "$SlotID";
+
 		
 
 							$RatedSellID1 = mysql_query("select * from BuyerAnswer1 where RatedSellerID='".$_GET['RatedSellerID']."' LIMIT 1");
