@@ -395,6 +395,7 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
 				$answer_buyer = mysql_query("select * from BuyerAnswer1 where SlotID='".$SlotID."' and ID='".$row["max_page"]."'");
         $answer_buyer_row = mysql_fetch_array($answer_buyer) or die(mysql_error());
         $IDanswer_buyer = $answer_buyer_row['ID'];
+        $UnknownSellerID = $answer_buyer_row['UnknownSellerID'];
         $answer1 = $answer_buyer_row['Ans1'];
         $answer2 = $answer_buyer_row['Ans2'];
         $answer3 = $answer_buyer_row['Ans3'];
@@ -431,7 +432,7 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
           </span>
         </label>
         <div id="cid_22" class="form-input jf-required">
-          <input type="text" id="input_22" name="q22_sellerId" data-type="input-textbox" class="form-textbox validate[required]" size="20" value="" data-component="textbox" required="" />
+          <input type="text" id="input_22" name="q22_sellerId" data-type="input-textbox" class="form-textbox validate[required]" size="20" value="<?php echo "$UnknownSellerID"; ?>" data-component="textbox" required="" />
         </div>
       </li>
       <li class="form-line jf-required" data-type="control_radio" id="id_17">

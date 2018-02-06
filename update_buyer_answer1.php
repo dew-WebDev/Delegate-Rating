@@ -1,4 +1,5 @@
 <?php
+$SlotID = $_POST['SlotID'];
 
 if ($_POST['q17_typeA'] == 'Yes')
 	{
@@ -35,7 +36,7 @@ require_once("query/connectivity.php");
 	if(isset($_POST['IDAnswer']) ){
     
 
-		$sql="INSERT INTO BuyerAnswer1 (BuyerID, RatedSellerID, Ans1, Ans2, Ans3, Ans4, Ans5, Ans6, Ans7, Active) VALUES ('".$_POST['BuyerID']."','".$_POST['RatedSellerID']."','".$QNo1."','".$QNo2."','".$QNo3."','".$QNo4."','".$QNo5."','".$QNo6."','".$QNo7."','Y')";
+		$sql="INSERT INTO BuyerAnswer1 (BuyerID, RatedSellerID, SlotID, Ans1, Ans2, Ans3, Ans4, Ans5, Ans6, Ans7, Active) VALUES ('".$_POST['BuyerID']."','".$_POST['RatedSellerID']."',".$SlotID.",'".$QNo1."','".$QNo2."','".$QNo3."','".$QNo4."','".$QNo5."','".$QNo6."','".$QNo7."','Y')";
 		mysql_query($sql);
 
 		$sql1="UPDATE BuyerAnswer1 SET Active='N' WHERE ID=".$_POST['IDAnswer']."";

@@ -34,6 +34,31 @@ th
 	font-size:14px;
 	font-weight:bold;
 }
+
+.classname {
+	
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:20px;
+	font-weight:normal;
+	font-style:normal;
+	height:36px;
+	
+	
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+}.classname:hover {
+	
+	color:#777777;
+	text-decoration:none;
+}.classname:active {
+	position:relative;
+	top:1px;
+	text-decoration:none;
+	color:#000000;
+	}
 </style>
 <html lang="en">
 <head>
@@ -501,11 +526,44 @@ echo "<thead><tr><th style='width:10%;text-align:center;'>Date&nbsp;<i class='fa
 					{
 						if($arequest == 'MUTUAL')
 						{
-							echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td style='color:rgb(255,0,0);'>".$arequest."</td><td style='text-align:center;'></td></tr></tbody>";	
+							$SlotID = $krows['time_slot_id'];
+							$CheckRatedBuyID = $krows['bcomid'];
+
+							$RatedBuyID1 = mysql_query("select * from SellerAnswer1 where RatedBuyerID='".$CheckRatedBuyID."' LIMIT 1");
+							$row = mysql_fetch_assoc($RatedBuyID1);
+							
+							$RatedBuyerIDAnswer = $row['RatedBuyerID'];
+
+								if ($RatedBuyerIDAnswer == $CheckRatedBuyID)
+
+									{
+										echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td style='color:rgb(255,0,0);'>".$arequest."</td><td style='text-align:center;'><div align='right'><a href='survey_seller.php?SellerID=$scomid&RatedBuyerID=$CheckRatedBuyID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div></td></tr></tbody>";	
+
+									}
+								else
+									{
+										echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td style='color:rgb(255,0,0);'>".$arequest."</td><td style='text-align:center;'><div align='right'><a href='survey_seller.php?SellerID=$scomid&RatedBuyerID=$CheckRatedBuyID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div></td></tr></tbody>";	
+
+									}
 						}
 						else
 						{
-							echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td>".$arequest."</td><td style='text-align:center;'></td></tr></tbody>";	
+							$SlotID = $krows['time_slot_id'];
+							$CheckRatedBuyID = $krows['bcomid'];
+
+							$RatedBuyID1 = mysql_query("select * from SellerAnswer1 where RatedBuyerID='".$CheckRatedBuyID."' LIMIT 1");
+							$row = mysql_fetch_assoc($RatedBuyID1);
+							
+							$RatedBuyerIDAnswer = $row['RatedBuyerID'];
+
+								if ($RatedBuyerIDAnswer == $CheckRatedBuyID)
+								{
+										echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td>".$arequest."</td><td style='text-align:center;'><div align='right'><a href='survey_seller.php?SellerID=$scomid&RatedBuyerID=$CheckRatedBuyID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div></td></tr></tbody>";	
+								}
+								else
+								{
+									echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td>".$arequest."</td><td style='text-align:center;'><div align='right'><a href='survey_seller.php?SellerID=$scomid&RatedBuyerID=$CheckRatedBuyID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div></td></tr></tbody>";
+								}
 						}
 						$sdesc = $krows['time_slot_description'];
 					}
@@ -517,7 +575,24 @@ echo "<thead><tr><th style='width:10%;text-align:center;'>Date&nbsp;<i class='fa
 						}
 						else if($descrip == "")
 						{
-							echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td></td><td style='text-align:center;'></td></tr></tbody>";	
+								$SlotID = $krows['time_slot_id'];
+
+								$result = mysql_query("SELECT MAX(ID) AS max_page FROM SellerAnswer1 where SlotID='".$SlotID."'");
+        						$row = mysql_fetch_array($result);
+
+								$CheckAnswer = mysql_query("select * from SellerAnswer1 where SlotID='".$SlotID."' and ID='".$row["max_page"]."'");
+								$row = mysql_fetch_assoc($CheckAnswer);
+							
+								$CheckAnswerSlot = $row['SlotID'];
+
+								if ($SlotID == $CheckAnswerSlot)
+								{
+									echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td></td><td style='text-align:center;'><div align='right'><a href='survey_seller_blank.php?SellerID=$scomid&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div></td></tr></tbody>";	
+								}
+								else
+								{
+									echo "<tbody><tr><td>".$krows['time_slot_date']."</td><td>".$krows['time_slot_id_from']."</td><td>".$krows['time_slot_id_to']."</td><td>".$descrip."</td><td></td><td style='text-align:center;'><div align='right'><a href='survey_seller_blank.php?SellerID=$scomid&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div></td></tr></tbody>";	
+								}	
 						}
 						else
 						{

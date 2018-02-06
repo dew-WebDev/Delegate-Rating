@@ -1,6 +1,6 @@
 <?php
 
-$SellerInput = $_POST['q22_sellerIdß'];
+$SellerInput = $_POST['q22_sellerId'];
 $SlotID = $_POST['SlotID'];
 
 if ($_POST['q17_typeA'] == 'Yes')
