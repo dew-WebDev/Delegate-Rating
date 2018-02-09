@@ -545,7 +545,7 @@ $qry1 ="select
 
 											if ($flag=='T')
 													{
-														echo "<div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div>";
+														echo "<div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID&SlotID=$SlotID' class='classname'><span style='color:#008000'>&#9734;</span></a></div>";
 
 													}
 
@@ -560,7 +560,7 @@ $qry1 ="select
 
 											if ($flag=='T')
 													{
-														echo "<div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div>";
+														echo "<div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID&SlotID=$SlotID' class='classname'><span style='color:#FF0000'>&#9734;</span></a></div>";
 													}
 										echo "</td></tr>";		
 
@@ -586,7 +586,7 @@ $qry1 ="select
 										
 											if ($flag=='T')
 													{
-														echo "<div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div>";
+														echo "<div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID&SlotID=$SlotID' class='classname'><span style='color:#008000'>&#9734;</span></a></div>";
 
 													}
 											echo "</td></tr>";	
@@ -598,7 +598,7 @@ $qry1 ="select
 										
 											if ($flag=='T')
 													{
-														echo "<div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div>";
+														echo "<div align='right'><a href='survey_buyer.php?BuyerID=$bcomid&RatedSellerID=$CheckRatedSellID&SlotID=$SlotID' class='classname'><span style='color:#FF0000'>&#9734;</span></a></div>";
 													}
 										echo "</td></tr>";
 													
@@ -638,7 +638,7 @@ $qry1 ="select
 
 											if ($flag=='T')
 													{
-														echo "<div align='right'><a href='survey_buyer_blank.php?BuyerID=$bcomid&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#008000'>&#9734;</span></a></div>";
+														echo "<div align='right'><a href='survey_buyer_blank.php?BuyerID=$bcomid&SlotID=$SlotID' class='classname'><span style='color:#008000'>&#9734;</span></a></div>";
 													}
 
 										echo "</td></tr>";
@@ -651,7 +651,7 @@ $qry1 ="select
 
 											if ($flag=='T')
 													{
-														echo "<div align='right'><a href='survey_buyer_blank.php?BuyerID=$bcomid&SlotID=$SlotID' class='classname' target='_blank'><span style='color:#FF0000'>&#9734;</span></a></div>";
+														echo "<div align='right'><a href='survey_buyer_blank.php?BuyerID=$bcomid&SlotID=$SlotID' class='classname'><span style='color:#FF0000'>&#9734;</span></a></div>";
 													}
 
 
