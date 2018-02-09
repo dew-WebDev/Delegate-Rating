@@ -534,8 +534,7 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
                
             </span>
             
-            <button type="button" 
-        onclick="window.open('', '_self', ''); window.close();" class="cancelbutton">Cancel</button>
+           <input type='button' value='Cancel' onclick='location.replace("http://192.168.16.9:8888/Delegate/Delegate-Rating/business-calendarbuyerconfirm.php")' class='cancelbutton' />
           </div>
         </div>
       </li>
@@ -702,8 +701,7 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
                
             </span>
            
-            <button type="button" 
-        onclick="window.open('', '_self', ''); window.close();" class="cancelbutton">Cancel</button>
+         <input type='button' value='Cancel' onclick='location.replace("http://192.168.16.9:8888/Delegate/Delegate-Rating/business-calendarbuyerconfirm.php")' class='cancelbutton' />
           </div>
         </div>
       </li>
