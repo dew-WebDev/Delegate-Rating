@@ -528,9 +528,9 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
             <span>
                
             </span>
-            <button id="input_reset_2" class="cancelbutton" data-component="button" onclick="windowClose();">
-              Cancel
-            </button>
+            
+            <button type="button" 
+        onclick="window.open('', '_self', ''); window.close();" class="cancelbutton">Cancel</button>
           </div>
         </div>
       </li>
@@ -691,9 +691,9 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
             <span>
                
             </span>
-           <button id="input_reset_2" class="cancelbutton" data-component="button" onclick="windowClose();">
-              Cancel
-            </button>
+           
+            <button type="button" 
+        onclick="window.open('', '_self', ''); window.close();" class="cancelbutton">Cancel</button>
           </div>
         </div>
       </li>
