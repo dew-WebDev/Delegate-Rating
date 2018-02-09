@@ -345,7 +345,7 @@ else
 							<span style="font-size:16px; font-weight:Bold; font-family:Arial;">PATA Adventure Travel Conference and Mart <?php echo $ptm_year;?> <br>SELLER APPOINTMENT SCHEDULE <br><?php echo $scname; ?>, <?php echo $scountry; ?> <br><?php echo $sname; ?> <br>Reg. No : <?php echo $scomid; ?></span>
 						</div>
 						<div class="col-lg-2">
-							<span style="font-size:16px; font-weight:Bold; font-family:Times;float:right; margin-right:50px; margin-top:30px;"><?php echo $_SESSION['user_name']; ?></span>
+							<span style="font-size:16px; font-weight:Bold; font-family:Arial;float:right; margin-right:50px; margin-top:30px;"><?php echo $_SESSION['user_name']; ?></span>
 						</div>
 					</div>
 						

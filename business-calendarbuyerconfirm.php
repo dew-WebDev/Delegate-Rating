@@ -348,7 +348,7 @@ $tq=mysql_query("select * from date_settings where settings_status='Y'");
 							<span style="font-size:16px; font-weight:Bold; font-family:Arial;">PATA Adventure Travel And Responsible Tourism Conference And Mart <?php echo $ptm_year;?> <br>BUYER APPOINTMENT SCHEDULE <br><?php echo $bcname; ?>, <?php echo $bcountry; ?><br><?php echo $bname; ?> <br>Reg. No : <?php echo $bcomid; ?></span>
 						</div>
 						<div class="col-lg-2">
-							<span style="font-size:16px; font-weight:Bold; font-family:Times;float:right; margin-right:50px; margin-top:30px;"><?php echo $bcomid; ?></span>
+							<span style="font-size:16px; font-weight:Bold; font-family:Arial;float:right; margin-right:50px; margin-top:30px;"><?php echo $bcomid; ?></span>
 						</div>
 					</div>
 						<div class="panel-body">

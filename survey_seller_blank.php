@@ -46,7 +46,7 @@ window.close();
         padding-top:20px;
         width:690px;
         color:#555 !important;
-        font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
         font-size:14px;
     }
     .form-radio-item label, .form-checkbox-item label, .form-grading-label, .form-header{
@@ -67,23 +67,23 @@ window.close();
       
       }/*PREFERENCES STYLE*/
     .form-all {
-      font-family: Lucida Grande, sans-serif;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     }
     .form-all .qq-upload-button,
     .form-all .form-submit-button,
     .form-all .form-submit-reset,
     .form-all .form-submit-print {
-      font-family: Lucida Grande, sans-serif;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     }
     .form-all .form-pagebreak-back-container,
     .form-all .form-pagebreak-next-container {
-      font-family: Lucida Grande, sans-serif;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     }
     .form-header-group {
-      font-family: Lucida Grande, sans-serif;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     }
     .form-label {
-      font-family: Lucida Grande, sans-serif;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     }
   
     
@@ -420,9 +420,10 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"save","qid":"2","text":"Save",
       <li class="form-line" data-type="control_text" id="id_16">
         <div id="cid_16" class="form-input-wide">
           <div id="text_16" class="form-html" data-component="text">
-             <h1>PATA Adventure and Responsible<br>Travel Mart</h1>
+            <h1>PATA Adventure and Responsible Tourism Conference and Mart 2018 – Buyer rating</h1>
            
-            <h2><?php echo "$Title"; ?></h2>
+            <p>In an effort to improve the quality of our event, PATA kindly requests that each seller and buyer  provide feedback on the quality of the delegates onsite. For each seller, please help rate the following buyer. The information will be used for internal use only.  </p>
+            
             
           </div>
         </div>
@@ -589,9 +590,9 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"save","qid":"2","text":"Save",
       <li class="form-line" data-type="control_text" id="id_16">
         <div id="cid_16" class="form-input-wide">
           <div id="text_16" class="form-html" data-component="text">
-             <h1>PATA Adventure and Responsible<br>Travel Mart</h1>
+            <h1>PATA Adventure and Responsible Tourism Conference and Mart 2018 – Buyer rating</h1>
            
-            <h2><?php echo "$Title"; ?></h2>
+            <p>In an effort to improve the quality of our event, PATA kindly requests that each seller and buyer  provide feedback on the quality of the delegates onsite. For each seller, please help rate the following buyer. The information will be used for internal use only.  </p>
             
           </div>
         </div>

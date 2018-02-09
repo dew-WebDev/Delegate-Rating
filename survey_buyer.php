@@ -48,7 +48,7 @@ window.close();
         padding-top:20px;
         width:690px;
         color:#555 !important;
-        font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
         font-size:14px;
     }
     .form-radio-item label, .form-checkbox-item label, .form-grading-label, .form-header{
@@ -68,23 +68,23 @@ window.close();
       
       }/*PREFERENCES STYLE*/
     .form-all {
-      font-family: Lucida Grande, sans-serif;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     }
     .form-all .qq-upload-button,
     .form-all .form-submit-button,
     .form-all .form-submit-reset,
     .form-all .form-submit-print {
-      font-family: Lucida Grande, sans-serif;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     }
     .form-all .form-pagebreak-back-container,
     .form-all .form-pagebreak-next-container {
-      font-family: Lucida Grande, sans-serif;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     }
     .form-header-group {
-      font-family: Lucida Grande, sans-serif;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     }
     .form-label {
-      font-family: Lucida Grande, sans-serif;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     }
   
     
@@ -425,9 +425,9 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
       <li class="form-line" data-type="control_text" id="id_16">
         <div id="cid_16" class="form-input-wide">
           <div id="text_16" class="form-html" data-component="text">
-            <h1>PATA Adventure and Responsible<br>Travel Mart</h1>
-            <h2><?php echo "$Title"; ?></h2>
-            <p><?php echo "Seller ID: ".$_GET['RatedSellerID'].""; ?> <?php echo "$company_name"; ?></p>
+            <h1>PATA Adventure and Responsible Tourism Conference and Mart 2018 – Seller rating</h1>
+            <p>In an effort to improve the quality of our event, PATA kindly requests that each seller and buyer  provide feedback on the quality of the delegates onsite. For each buyer, please help rate the following seller. The information will be used for internal use only.</p>
+            <p><?php echo "Seller ID: ".$_GET['RatedSellerID'].""; ?> - (<?php echo "$company_name"; ?>)</p>
           </div>
         </div>
       </li>
@@ -592,9 +592,9 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
       <li class="form-line" data-type="control_text" id="id_16">
         <div id="cid_16" class="form-input-wide">
           <div id="text_16" class="form-html" data-component="text">
-            <h1>PATA Adventure and Responsible<br>Travel Mart</h1>
-            <h2><?php echo "$Title"; ?></h2>
-            <p><?php echo "Seller ID: ".$_GET['RatedSellerID'].""; ?> <?php echo "$company_name"; ?></p>
+            <h1>PATA Adventure and Responsible Tourism Conference and Mart 2018 – Seller rating</h1>
+            <p>In an effort to improve the quality of our event, PATA kindly requests that each seller and buyer  provide feedback on the quality of the delegates onsite. For each buyer, please help rate the following seller. The information will be used for internal use only.</p>
+            <p><?php echo "Seller ID: ".$_GET['RatedSellerID'].""; ?> - (<?php echo "$company_name"; ?>)</p>
           </div>
         </div>
       </li>
