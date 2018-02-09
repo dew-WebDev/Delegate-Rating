@@ -404,6 +404,11 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"save","qid":"2","text":"Save",
         $answer5 = $answer_seller_row['Ans5'];
         $answer6 = $answer_seller_row['Ans6'];
         $answer7 = $answer_seller_row['Ans7'];
+
+        $buyer_company = mysql_query("select * from buyer_company where company_id='".$RatedBuyerID."'");
+        $buyer_company_row = mysql_fetch_array($buyer_company) or die(mysql_error());
+        $company_name = $buyer_company_row['company_name'];
+        
         
         
 ?>
@@ -422,7 +427,7 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"save","qid":"2","text":"Save",
              <h1>PATA Adventure and Responsible<br>Travel Mart</h1>
            
             <h2><?php echo "$Title"; ?></h2>
-            <p><?php echo "Buyer ID: ".$RatedBuyerID.""; ?></p>
+            <p><?php echo "Buyer ID: ".$RatedBuyerID.""; ?> <?php echo "$company_name"; ?></p>
           </div>
         </div>
       </li>
@@ -568,6 +573,10 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"save","qid":"2","text":"Save",
         $Title = $seller_rating_row['Title'];
         $Round = $seller_rating_row['Round'];
 
+        $buyer_company = mysql_query("select * from buyer_company where company_id='".$RatedBuyerID."'");
+        $buyer_company_row = mysql_fetch_array($buyer_company) or die(mysql_error());
+        $company_name = $buyer_company_row['company_name'];
+
       ?>
         <form class="jotform-form" action="insert_seller_answer1.php" method="post" name="form_80041939872462" id="80041939872462" accept-charset="utf-8">
   <input type="hidden" name="formID" value="80041939872462" />
@@ -582,7 +591,7 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"save","qid":"2","text":"Save",
              <h1>PATA Adventure and Responsible<br>Travel Mart</h1>
            
             <h2><?php echo "$Title"; ?></h2>
-            <p><?php echo "Buyer ID: ".$RatedBuyerID.""; ?></p>
+            <p><?php echo "Buyer ID: ".$RatedBuyerID.""; ?> <?php echo "$company_name"; ?></p>
           </div>
         </div>
       </li>

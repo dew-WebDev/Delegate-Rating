@@ -404,6 +404,11 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
         $answer5 = $answer_buyer_row['Ans5'];
         $answer6 = $answer_buyer_row['Ans6'];
         $answer7 = $answer_buyer_row['Ans7'];
+
+        $seller_company = mysql_query("select * from seller_company where company_id='".$RatedSellerID."'");
+        $seller_company_row = mysql_fetch_array($seller_company) or die(mysql_error());
+        $company_name = $seller_company_row['company_name'];
+        
         
 
         
@@ -422,7 +427,7 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
           <div id="text_16" class="form-html" data-component="text">
             <h1>PATA Adventure and Responsible<br>Travel Mart</h1>
             <h2><?php echo "$Title"; ?></h2>
-            <p><?php echo "Seller ID: ".$_GET['RatedSellerID'].""; ?></p>
+            <p><?php echo "Seller ID: ".$_GET['RatedSellerID'].""; ?> <?php echo "$company_name"; ?></p>
           </div>
         </div>
       </li>
@@ -572,6 +577,11 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
 				$Title = $buyer_rating_row['Title'];
 				$Round = $buyer_rating_row['Round'];
 
+        $seller_company = mysql_query("select * from seller_company where company_id='".$RatedSellerID."'");
+        $seller_company_row = mysql_fetch_array($seller_company) or die(mysql_error());
+        $company_name = $seller_company_row['company_name'];
+        
+
 			?>
 <form class="jotform-form" action="insert_buyer_answer1.php" method="post" name="form_80041000772440" id="80041000772440" accept-charset="utf-8">
   <input type="hidden" name="formID" value="80041000772440" />
@@ -585,7 +595,7 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
           <div id="text_16" class="form-html" data-component="text">
             <h1>PATA Adventure and Responsible<br>Travel Mart</h1>
             <h2><?php echo "$Title"; ?></h2>
-            <p><?php echo "Seller ID: ".$_GET['RatedSellerID'].""; ?></p>
+            <p><?php echo "Seller ID: ".$_GET['RatedSellerID'].""; ?> <?php echo "$company_name"; ?></p>
           </div>
         </div>
       </li>
