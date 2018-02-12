@@ -539,7 +539,7 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
                
             </span>
            
-            <input type='button' value='Cancel' onclick='location.replace("http://192.168.16.9:8888/Delegate/Delegate-Rating/business-calendarbuyerconfirm.php")' class='cancelbutton' />
+           <a href="business-calendarbuyerconfirm.php" title="cancel" class="cancelbutton" style="text-decoration: none; padding:8px 18px;color: #777777;text-shadow:1px 1px 0px #ffffff;">Cancel</a>
           </div>
         </div>
       </li>
@@ -711,7 +711,7 @@ JotForm.paymentExtrasOnTheFly([null,null,{"name":"update","qid":"2","text":"Upda
                
             </span>
            
-            <input type='button' value='Cancel' onclick='location.replace("http://192.168.16.9:8888/Delegate/Delegate-Rating/business-calendarbuyerconfirm.php")' class='cancelbutton' />
+            <a href="business-calendarbuyerconfirm.php" title="cancel" class="cancelbutton" style="text-decoration: none; padding:8px 18px;color: #777777;text-shadow:1px 1px 0px #ffffff;">Cancel</a>
           </div>
         </div>
       </li>

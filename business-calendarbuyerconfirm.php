@@ -345,7 +345,7 @@ $tq=mysql_query("select * from date_settings where settings_status='Y'");
 							<img src="images/PDFLogo.jpg" style="margin-top:30px;"/>
 						</div>
 						<div class="col-lg-6" style="margin-top:30px;">
-							<span style="font-size:16px; font-weight:Bold; font-family:Arial;">PATA Adventure Travel And Responsible Tourism Conference And Mart <?php echo $ptm_year;?> <br>BUYER APPOINTMENT SCHEDULE <br><?php echo $bcname; ?>, <?php echo $bcountry; ?><br><?php echo $bname; ?> <br>Reg. No : <?php echo $bcomid; ?></span>
+							<span style="font-size:16px; font-weight:Bold; font-family:Arial;">PATA ATRTCM <?php echo $ptm_year;?> <br>BUYER APPOINTMENT SCHEDULE <br><?php echo $bcname; ?>, <?php echo $bcountry; ?><br><?php echo $bname; ?> <br>Reg. No : <?php echo $bcomid; ?></span>
 						</div>
 						<div class="col-lg-2">
 							<span style="font-size:16px; font-weight:Bold; font-family:Arial;float:right; margin-right:50px; margin-top:30px;"><?php echo $bcomid; ?></span>
@@ -357,8 +357,9 @@ $tq=mysql_query("select * from date_settings where settings_status='Y'");
 									
 					<?php
 
-echo "Please note that it's compulsory for all buyers to fulfil 100% of the appointments on their business calendar (Total 20 appointments including any EMPTY slots) with ATRTCM2018 Sellers' signatures on the respective appointment slot for schedule in Apr 23 during 0930-1650.";
-echo "<br><center>**** Please submit your appointment sheet at the buyer registration counter at the end of the event. ****</center>";
+echo "<li>Please adhere to the 15 minutes allotment for your appointments and follow bell signal to concludes the current business session and move without delay to your next appointment immediately.</li>";
+echo "<li>Please ensure to collect Seller’s sticker and signature on the respective appointment schedule on April 23 from 0930-1650.</li>";
+echo "<li>Please give us your feedback via business calendar online with your mobile device or at the buyer registration counter</li>";																																																	  
 echo "<table class='table table-bordered table-hover table-striped tablesorter'>";
 //echo "<thead><tr><th>Seller Company</th><th>Delegate Name</th><th>Date</th><th>Slot Start</th><th>Slot End</th><th>Description</th><th>Booth Number</th></tr></thead>";
 echo "<thead><tr><th style='width:10%;text-align:center;'>Date&nbsp;<i class='fa fa-sort'></i></th><th style='width:10%;text-align:center;'>Start Time&nbsp;<i class='fa fa-sort'></i></th><th style='width:10%;text-align:center;'>End Time&nbsp;<i class='fa fa-sort'></i></th><th style='width:30%;text-align:center;'>Details&nbsp;<i class='fa fa-sort'></i></th><th style='width:20%;text-align:center;'>Requested By&nbsp;<i class='fa fa-sort'></i></th><th style='width:20%;text-align:center;'>Signature&nbsp;<i class='fa fa-sort'></i></th></tr></thead>";

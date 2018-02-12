@@ -342,7 +342,7 @@ else
 							<img src="images/PDFLogo.jpg" style="margin-top:30px;"/>
 						</div>
 						<div class="col-lg-6" style="margin-top:30px;">
-							<span style="font-size:16px; font-weight:Bold; font-family:Arial;">PATA Adventure Travel Conference and Mart <?php echo $ptm_year;?> <br>SELLER APPOINTMENT SCHEDULE <br><?php echo $scname; ?>, <?php echo $scountry; ?> <br><?php echo $sname; ?> <br>Reg. No : <?php echo $scomid; ?></span>
+							<span style="font-size:16px; font-weight:Bold; font-family:Arial;">PATA ATRTCM <?php echo $ptm_year;?> <br>SELLER APPOINTMENT SCHEDULE <br><?php echo $scname; ?>, <?php echo $scountry; ?> <br><?php echo $sname; ?> <br>Reg. No : <?php echo $scomid; ?></span>
 						</div>
 						<div class="col-lg-2">
 							<span style="font-size:16px; font-weight:Bold; font-family:Arial;float:right; margin-right:50px; margin-top:30px;"><?php echo $_SESSION['user_name']; ?></span>
@@ -354,6 +354,10 @@ else
 								<div class="table-responsive">
 <?php
 
+echo "<li>Please adhere to the 15 minutes allotment for your appointments and follow bell signal to concludes the current business session and carry on to your next appointment.</li>";
+echo "<li>Please paste the sticker and sign on the respective appointment slot on the Buyer’s appointment Schedule.</li>";
+echo "<li>Please help rating buyer via business calendar online with your mobile device or circle them on this paper</li>";
+echo "<li>Please submit your appointment sheet at the Seller registration counter at the end of the event</li><br>";
 echo "<table class='table table-bordered table-hover table-striped tablesorter'>";
 echo "<thead><tr><th style='width:10%;text-align:center;'>Date&nbsp;<i class='fa fa-sort'></i></th><th style='width:10%;text-align:center;'>Start Time&nbsp;<i class='fa fa-sort'></i></th><th style='width:10%;text-align:center;'>End Time&nbsp;<i class='fa fa-sort'></i></th><th style='width:32%;text-align:center;'>Details&nbsp;<i class='fa fa-sort'></i></th><th style='width:20%;text-align:center;'>Requested By&nbsp;<i class='fa fa-sort'></i></th><th style='width:20%;text-align:center;'>Signature&nbsp;<i class='fa fa-sort'></i></th></tr></thead>";
 //echo "<thead><tr><th>Buyer Company</th><th>Delegate Name</th><th>Date</th><th>Slot Start</th><th>Slot End</th><th>Description</th><th>Booth Number</th></tr></thead>";
