@@ -28,7 +28,7 @@ include("header.php");
 			 <center>
 				<h1 style='color:#32464E'>Your Adventure Survey has been submitted for processing Successfully...</h1>
 				<br><br><br>
-				<input type='button' value='Home' style='width:200px;'onclick='location.replace("http://192.168.16.9:8888/Delegate/Delegate-Rating/business-calendarbuyerconfirm.php")'/>
+				<input type='button' value='Home' style='width:200px;'onclick='location.replace("/Delegate/Delegate-Rating/business-calendarbuyerconfirm.php")'/>
 			</center>
 			</div>
 <br><br><br><br><br>
